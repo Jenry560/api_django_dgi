@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+
+
+# Static files
+/staticfiles/
+/static/
+
+# Media files
+/media/
+
+# Virtual environment
+venv/
+env/
+
+# Logs
+*.log
+
+# Environment variables
+*.env

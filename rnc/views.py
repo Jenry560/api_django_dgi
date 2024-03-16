@@ -81,7 +81,10 @@ def crear_token(request, contrasena, persona):
 
         token, create = Token.objects.get_or_create(user=token_for_search)
 
-        return JsonResponse({"token": token.key})
+        return JsonResponse({"token": token.key}, status=status.HTTP_200_OK)
 
-    except Exception as e:
-        raise e
+    except:
+        return JsonResponse(
+            {"error": "Ha ocurrido un error"},
+            status=status.HTTP_404_NOT_FOUND,
+        )

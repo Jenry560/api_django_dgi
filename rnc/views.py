@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 import os
 from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 
 @api_view(["GET"])
@@ -61,9 +61,9 @@ def consultar_nombre(request, name):
 def crear_token(request, contrasena, persona):
     try:
 
-        # contra_env = os.getenv("CONTRA")
+        contra_env = os.getenv("CONTRA")
 
-        contrasena_is_valid = contrasena == "Jenry560"
+        contrasena_is_valid = contrasena == contra_env
 
         if not contrasena_is_valid:
             return JsonResponse(
@@ -81,10 +81,7 @@ def crear_token(request, contrasena, persona):
 
         token, create = Token.objects.get_or_create(user=token_for_search)
 
-        return JsonResponse({"token": token.key}, status=status.HTTP_200_OK)
+        return JsonResponse({"token": token.key})
 
-    except:
-        return JsonResponse(
-            {"error": "Ha ocurrido un error"},
-            status=status.HTTP_404_NOT_FOUND,
-        )
+    except Exception as e:
+        raise e

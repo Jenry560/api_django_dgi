@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+# SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = "django-insecure-g5gl9vc3(9o&5y4)10z+m8s*iz47^u*@c@26m6f_@cw#!m^^um"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,13 +81,15 @@ WSGI_APPLICATION = "server.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# os.getenv("NAME")
+
 DATABASES = {
     "default": {
         "ENGINE": "mssql",
-        "NAME": os.getenv("NAME"),
-        "USER": os.getenv("USER"),
-        "PASSWORD": os.getenv("PASSWORD"),
-        "HOST": os.getenv("HOST"),
+        "NAME": "django",
+        "USER": "administrador",
+        "PASSWORD": "Jenry162",
+        "HOST": "jenry560.database.windows.net",
         "PORT": "",
         "OPTIONS": {"driver": "ODBC Driver 17 for SQL Server"},
     }

@@ -12,7 +12,7 @@ from django.contrib.auth.models import User
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 
 @api_view(["GET"])
@@ -61,9 +61,9 @@ def consultar_nombre(request, name):
 def crear_token(request, contrasena, persona):
     try:
 
-        contra_env = os.getenv("CONTRA")
+        # contra_env = os.getenv("CONTRA")
 
-        contrasena_is_valid = contrasena == contra_env
+        contrasena_is_valid = contrasena == "Jenry560"
 
         if not contrasena_is_valid:
             return JsonResponse(
